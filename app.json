@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "ENIS Assisstant v1",
+    "description": "help student to find their way",
+    "slug": "enis-assistantv1",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/logo-03.png",
+    "scheme": "enisassisstant",
+    "splash": {
+      "image": "./assets/images/bot/0.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.mtc.enisassisstant"
+    },
+    "sdkVersion": "37.0.0"
+  }
+}
