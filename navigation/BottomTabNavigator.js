@@ -29,7 +29,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         component={Chatbot}
         options={{
           title: 'Chat Bot',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-chatboxes" />,
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="chatbox-outline" />,
         }}
       />
       <BottomTab.Screen

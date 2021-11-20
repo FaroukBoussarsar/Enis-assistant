@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { LogBox, Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
@@ -8,9 +8,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
-
+import { useFonts } from 'expo-font';
 const Stack = createStackNavigator();
-
+// LogBox.ignoreAllLogs()
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
   const [initialNavigationState, setInitialNavigationState] = React.useState();
@@ -18,32 +18,46 @@ export default function App(props) {
   const { getInitialState } = useLinking(containerRef);
 
   // Load any resources or data that we need prior to rendering the app
-  React.useEffect(() => {
-    async function loadResourcesAndDataAsync() {
-      try {
-        SplashScreen.preventAutoHide();
+  async function loadResourcesAndDataAsync() {
+    try {
+      SplashScreen.preventAutoHide();
 
-        // Load our initial navigation state
-        setInitialNavigationState(await getInitialState());
+      // Load our initial navigation state
+      setInitialNavigationState(await getInitialState());
 
-        // Load fonts
-        await Font.loadAsync({
-          ...Ionicons.font,
-          'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
-        });
-      } catch (e) {
-        // We might want to provide this error information to an error reporting service
-        console.warn(e);
-      } finally {
-        setLoadingComplete(true);
-        SplashScreen.hide();
-      }
+      // Load fonts
+    // let res= await Font.loadAsync({
+    //     ...Ionicons.font,
+    //     'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+    //   });
+    //   let [fontsLoaded] = useFonts({
+    //     'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+    //   });
+     if(fontsLoaded){
+      setLoadingComplete(true);
+      SplashScreen.hide();
+     }
+     
+    } catch (e) {
+      // We might want to provide this error information to an error reporting service
+      console.warn(e);
     }
+     finally {
+       setLoadingComplete(true);
+      SplashScreen.hide();
+    }
+  }
+  React.useEffect(() => {
+   
 
     loadResourcesAndDataAsync();
   }, []);
 
-  if (!isLoadingComplete && !props.skipLoadingScreen) {
+  const [loaded] = useFonts({
+    'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+  });
+  
+  if (!loaded && !props.skipLoadingScreen) {
     return null;
   } else {
     return (

@@ -13,7 +13,7 @@
     "icon": "./assets/images/logo-03.png",
     "scheme": "enisassisstant",
     "splash": {
-      "image": "./assets/images/bot/0.png",
+      "image": "./assets/images/logo-03.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -28,7 +28,6 @@
     },
     "android": {
       "package": "com.mtc.enisassisstant"
-    },
-    "sdkVersion": "37.0.0"
+    }
   }
 }

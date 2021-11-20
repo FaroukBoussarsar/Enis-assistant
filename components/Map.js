@@ -1,4 +1,5 @@
 
+import { Button } from "galio-framework";
 import React, { useState } from "react";
 
 import {
@@ -67,8 +68,11 @@ const Map = (props) => {
                     opacity="1  "
                     href={require("../assets/images/location.png")}
                     clipPath="url(#image-clip)"
-                    onPress={() => Alert.alert("stade foot", "bring a team and go play")}
+                    onPress={() =>{ 
+                        console.log("here")
+                        Alert.alert("stade foot", "bring a team and go play")}}
                 />
+              
                 <Image
                     x="25%"
                     y="5%"

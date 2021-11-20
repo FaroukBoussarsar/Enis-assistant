@@ -27,7 +27,7 @@ export default function ChatBot() {
   // "positionX": 77,
   //"positionY": -200,
 
-  var dictt = {
+  var diFctt = {
 
     '9000': { x: h / 8, y: -w / 2, scale: 3, duration: 3000 },
 
